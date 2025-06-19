@@ -57,10 +57,29 @@ document.addEventListener('DOMContentLoaded', function () {
         // ... (mantenha este código)
     });
 
-    // Botão flutuante de contato (mantido igual)
+    // Botão flutuante de contato (agora com classe e lógica de exibição)
     const btn = document.createElement('button');
-    btn.textContent = 'Contato';
-    btn.style.position = 'fixed';
-    // ... (mantenha todo o resto do código do botão de contato)
+    btn.textContent = '✉️ rafalgnpedev@gmail.com'; // Altere para seu e-mail real
+    btn.className = 'contato-btn oculto'; // já começa oculto
+    btn.addEventListener('click', () => {
+        window.location.href = 'mailto:rafalgnpedev@gmail.com'; // Altere para seu e-mail real
+    });
     document.body.appendChild(btn);
+
+    // Mostrar o botão só no fim da página
+    function toggleContatoBtnOnScroll() {
+        const scrollY = window.scrollY || window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const bodyHeight = document.body.offsetHeight;
+
+        if (scrollY + windowHeight >= bodyHeight - 10) {
+            btn.classList.remove('oculto');
+        } else {
+            btn.classList.add('oculto');
+        }
+    }
+
+    window.addEventListener('scroll', toggleContatoBtnOnScroll);
+    window.addEventListener('resize', toggleContatoBtnOnScroll);
+    toggleContatoBtnOnScroll(); // Executa ao carregar
 });

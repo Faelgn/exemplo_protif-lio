@@ -21,7 +21,7 @@ html, body, .container, header, footer, .skill, .project {
 
 header {
     text-align: center;
-    padding: 60px 20px 20px 20px;
+    padding: 90px 20px 20px 20px;
     background: rgba(60,0,90,0.45);
     box-shadow: 0 4px 32px #a259f780;
 }
@@ -290,5 +290,49 @@ footer {
 .theme-btn.hidden {
     transform: translateY(-100px) !important;
     opacity: 0 !important;
+    pointer-events: none;
+}
+
+
+.contato-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    background: #a259f7;
+    color: #fff;
+    border: none;
+    border-radius: 28px;
+    padding: 13px 26px;
+    font-size: 1em;
+    font-weight: bold;
+    box-shadow: 0 0 16px #a259f7, 0 2px 12px #0002;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 
+        background 0.3s,
+        color 0.3s,
+        box-shadow 0.3s,
+        transform 0.2s;
+}
+
+.contato-btn:hover,
+.contato-btn:focus {
+    background: #fff176;
+    color: #a259f7;
+    box-shadow: 0 0 24px #fff176, 0 2px 18px #a259f7;
+    outline: none;
+    transform: scale(1.06);
+}
+
+.contato-btn {
+    /* ...seu estilo existente... */
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.4s;
+}
+
+.contato-btn.oculto {
+    opacity: 0;
     pointer-events: none;
 }
