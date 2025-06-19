@@ -159,3 +159,10 @@ footer {
     .skills { gap: 12px; }
     .skill { padding: 12px 10px; min-width: 80px; }
 }
+
+/* Modal custom extra (opcional) */
+#fechar-modal:hover {
+    background: #fff176 !important;
+    color: #a259f7 !important;
+    box-shadow: 0 0 24px #a259f7;
+}
