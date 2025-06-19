@@ -166,3 +166,15 @@ footer {
     color: #a259f7 !important;
     box-shadow: 0 0 24px #a259f7;
 }
+
+.skill, .project {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.skill:focus, .project:focus {
+    outline: none;
+    box-shadow: 0 0 16px #fff176, 0 0 8px #a259f7;
+}
