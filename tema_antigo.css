@@ -1,21 +1,21 @@
 body {
     margin: 0;
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
     color: #fff;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a0036 100%);
-    background-attachment: fixed;
+    /* Gradiente animado */
+    background: linear-gradient(-45deg, #2d0036, #6a11cb, #a259f7, #fff176);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
     overflow-x: hidden;
 }
 
 header {
     text-align: center;
     padding: 60px 20px 20px 20px;
-    background: rgba(20, 0, 40, 0.85);
-    border-bottom: 2px solid #a259f7;
+    background: rgba(60,0,90,0.45);
     box-shadow: 0 4px 32px #a259f780;
 }
-
 
 header h1 {
     font-size: 3em;
@@ -28,22 +28,23 @@ header h1 {
 header p {
     font-size: 1.3em;
     margin-top: 10px;
-    color: #c7aaff;
+    color: #e1bfff;
     text-shadow: 0 0 8px #a259f7;
 }
 
 .container {
     max-width: 900px;
     margin: 40px auto;
-    background: rgba(20, 0, 40, 0.85);
+    background: rgba(80,0,120,0.18);
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 #a259f755;
     padding: 40px;
+    backdrop-filter: blur(8px);
     border: 2px solid #a259f7;
 }
 
 section h2 {
-    color: #c7aaff;
+    color: #e1bfff;
     text-shadow: 0 0 8px #a259f7;
     margin-bottom: 18px;
 }
@@ -57,7 +58,7 @@ section h2 {
 }
 
 .skill {
-    background: rgba(162,89,247,0.10);
+    background: rgba(162,89,247,0.18);
     border-radius: 12px;
     padding: 20px 30px;
     min-width: 120px;
@@ -72,19 +73,13 @@ section h2 {
         box-shadow 0.2s,
         background 0.2s,
         color 0.2s;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -webkit-touch-callout: none;
-    cursor: pointer;
 }
 
-.skill:hover, .skill:focus {
+.skill:hover {
     transform: scale(1.08) rotate(-2deg);
     background: #a259f7;
     color: #fff176;
     box-shadow: 0 0 24px #fff176, 0 0 32px #a259f7;
-    outline: none;
 }
 
 .projects {
@@ -94,29 +89,23 @@ section h2 {
 }
 
 .project {
-    background: linear-gradient(135deg, #1a0036 0%, #2d0036 100%);
+    background: linear-gradient(135deg, #a259f7 0%, #6a11cb 100%);
     border-radius: 14px;
     padding: 24px;
     box-shadow: 0 2px 24px #a259f799, 0 0 16px #fff17633;
-    border: 2px solid #a259f7;
+    border: 2px solid #fff176;
     transition: 
         box-shadow 0.2s,
         transform 0.2s,
         border 0.2s;
     position: relative;
     overflow: hidden;
-    color: #fff;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -webkit-touch-callout: none;
 }
 
-.project:hover, .project:focus {
+.project:hover {
     box-shadow: 0 8px 48px #fff176, 0 0 32px #a259f7;
     transform: translateY(-6px) scale(1.03);
     border: 2px solid #fff;
-    outline: none;
 }
 
 .project h3 {
@@ -126,7 +115,7 @@ section h2 {
 }
 
 .project p {
-    color: #e0d7ff;
+    color: #f3e9ff;
 }
 
 .project a {
@@ -149,20 +138,19 @@ section h2 {
     animation: glow 2s infinite alternate;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 18px #a259f7, 0 0 32px #fff176; }
-    to { text-shadow: 0 0 32px #fff176, 0 0 48px #a259f7; }
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 footer {
     text-align: center;
     padding: 30px 10px 10px 10px;
-    color: #c7aaff;
+    color: #e1bfff;
     font-size: 1.1em;
     letter-spacing: 1px;
     text-shadow: 0 0 8px #a259f7;
-    background: #0a0a0a;
-    border-top: 2px solid #a259f7;
 }
 
 @media (max-width: 600px) {
@@ -179,15 +167,14 @@ footer {
     box-shadow: 0 0 24px #a259f7;
 }
 
-.skill, .project, .skill *, .project * {
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    -ms-user-select: none !important;
-    -webkit-touch-callout: none !important;
-    -moz-user-select: none !important;
+.skill, .project {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .skill:focus, .project:focus {
     outline: none;
-    box-shadow: 0 0 24px #a259f7, 0 0 16px #fff176;
+    box-shadow: 0 0 16px #fff176, 0 0 8px #a259f7;
 }
