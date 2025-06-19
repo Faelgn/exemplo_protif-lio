@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão que Esconde ao Rolagem</title>
+    <style>
+        body {
+            margin: 0;
+            height: 200vh; /* Página longa para testar rolagem */
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #1a0036, #0a0a0a);
+            color: white;
+        }
+
+        .botao-flutuante {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #a259f7;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: bold;
+            box-shadow: 0 0 16px #a259f7;
+            z-index: 1000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .botao-flutuante.hidden {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+
+        .conteudo {
+            padding: 100px 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="botao-flutuante" id="botaoTeste">TESTE</div>
+
+    <div class="conteudo">
+        <h1>Role para baixo para o botão desaparecer</h1>
+        <p>Role para cima para ele reaparecer</p>
+        <div style="height: 1500px;"></div>
+        <p>Chegou ao final!</p>
+    </div>
+
+    <script>
+        const botao = document.getElementById('botaoTeste');
+        let ultimaPosicao = window.pageYOffset;
+        
+        window.addEventListener('scroll', function() {
+            const posicaoAtual = window.pageYOffset;
+            
+            // Se estiver rolando para baixo
+            if (posicaoAtual > ultimaPosicao) {
+                botao.classList.add('hidden');
+            } 
+            // Se estiver rolando para cima
+            else if (posicaoAtual < ultimaPosicao) {
+                botao.classList.remove('hidden');
+            }
+            
+            // Se estiver no topo da página
+            if (posicaoAtual === 0) {
+                botao.classList.remove('hidden');
+            }
+            
+            ultimaPosicao = posicaoAtual;
+        });
+    </script>
+</body>
+</html>
