@@ -65,6 +65,7 @@ section h2 {
     gap: 30px;
     justify-content: center;
     margin-bottom: 40px;
+    cursor: pointer;
 }
 
 .skill {
