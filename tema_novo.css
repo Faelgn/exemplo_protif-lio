@@ -6,6 +6,17 @@ body {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a0036 100%);
     background-attachment: fixed;
     overflow-x: hidden;
+
+
+}
+
+html, body, .container, header, footer, .skill, .project {
+    transition: 
+        background 0.6s cubic-bezier(.4,2,.6,1),
+        background-color 0.6s cubic-bezier(.4,2,.6,1),
+        color 0.6s cubic-bezier(.4,2,.6,1),
+        border-color 0.6s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.6s cubic-bezier(.4,2,.6,1);
 }
 
 header {
@@ -190,4 +201,95 @@ footer {
 .skill:focus, .project:focus {
     outline: none;
     box-shadow: 0 0 24px #a259f7, 0 0 16px #fff176;
+}
+
+.theme-btn {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 1000;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    background: var(--btn-bg, #a259f7);
+    color: var(--btn-color, #fff);
+    box-shadow: 0 0 16px #a259f7;
+    transition: 
+        background 0.4s cubic-bezier(.4,2,.6,1),
+        color 0.4s cubic-bezier(.4,2,.6,1),
+        box-shadow 0.4s cubic-bezier(.4,2,.6,1);
+    position: fixed;
+}
+
+.theme-btn::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 0;
+    z-index: 0;
+    transition: width 0.5s cubic-bezier(.4,2,.6,1);
+    border-radius: 30px;
+}
+
+.theme-btn.theme-escuro {
+    --btn-bg: #a259f7;
+    --btn-color: #fff;
+}
+
+.theme-btn.theme-animado {
+    --btn-bg: #fff176;
+    --btn-color: #2d0036;
+}
+
+.theme-btn.theme-escuro::before {
+    background: linear-gradient(90deg, #fff176 0%, #a259f7 100%);
+}
+
+.theme-btn.theme-animado::before {
+    background: linear-gradient(90deg, #a259f7 0%, #fff176 100%);
+}
+
+.theme-btn.animating::before {
+    width: 100%;
+}
+
+.theme-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+
+.social-fixed {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 1000;
+    display: flex;
+    gap: 18px;
+}
+
+.social-fixed a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(162,89,247,0.18);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 8px #a259f7;
+    text-decoration: none;
+}
+
+.social-fixed a:hover {
+    background: #a259f7;
+    box-shadow: 0 0 24px #fff176, 0 0 16px #a259f7;
+}
+
+.social-fixed svg {
+    display: block;
 }
